@@ -1,7 +1,7 @@
 <?php  
     session_start();
     if(isset($_SESSION["admin_name"])){
-        header("location: http://localhost:8080/Gossipyy/index.php");
+        header("location: ../index.php");
     }
     include '../dbManager.php';
     if(!empty($_POST["uid"]) && !empty($_POST["pass"])){        
@@ -24,19 +24,19 @@
                     setcookie ("member_password","");  
                 }  
             }  
-            header("location: http://localhost:8080/Gossipyy/index.php"); 
+            header("location: ../index.php"); 
         }else{  
             $message = "Invalid Login";
             echo '<script language="javascript">';
             echo 'alert("'.$message.'");';
-            echo 'window.location="http://localhost:8080/Gossipyy/Login/index.php";';
+            echo 'window.location="../index.php";';
             echo '</script>';  
         } 
     }else{
         $message = "Both are Required Fields";
         echo '<script language="javascript">';
         echo 'alert("'.$message.'");';
-        echo 'window.location="http://localhost:8080/Gossipyy/Login/index.php";';
+        echo 'window.location="../index.php";';
         echo '</script>';
     }
 

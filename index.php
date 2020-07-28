@@ -8,7 +8,7 @@
 		if ($result->num_rows > 0)
 			$row = $result->fetch_assoc(); 
     }else{
-       header("Location: http://localhost:8080/Gossipyy/Login/index.php");
+       header("Location: Login/index.php");
     }
 ?>
 <!DOCTYPE html>
@@ -70,7 +70,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
+    <style>img[alt="www.000webhost.com"]{display: none;}</style>
 </head>
 
 <body>
@@ -97,7 +97,7 @@
                             <div class="intro-body">
                                 <div class="intro-image" style="opacity: 1; transform: scale(1);"></div>
                                 <div class="intro-text-container" style="opacity: 1; transform: translateY(0px);">
-                                    <h1 class="intro-title">Welcome to wchat Bylancer1</h1>
+                                    <h1 class="intro-title">Welcome to Gossipy</h1>
                                     <div class="intro-text">No Conversation sync. Please search users and start chat.
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                                                 <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                                                 <li><a href="#"><i class="ti-wallet"></i> Edit Profile</a></li>
                                                 <li role="separator" class="divider"></li>
-                                                <li><a href="backend/Logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
+                                                <li><a href="backEnd/Logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                             </ul>
                                             <!-- /.dropdown-user -->
                                         </div>
@@ -200,7 +200,7 @@
                         <div class="chat-avatar" id="launchProfile">
                             <div class="avatar icon-user-default" style="height: 40px; width: 40px;">
                                 <div class="avatar-body userimage profile-picture">
-                                    <img src="storage/user_image/Deven.jpg" alt="Deven" class="avatar-image is-loaded bg-theme curImg" width="100%">
+                                    <img src="" alt="Deven" class="avatar-image is-loaded bg-theme curImg" width="100%">
                                 </div>
                             </div>
                         </div>

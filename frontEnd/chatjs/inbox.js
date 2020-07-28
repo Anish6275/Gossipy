@@ -2,7 +2,8 @@
 // var Ses_img = "Bylancer.jpg";
 var audioogg = new Audio('frontEnd/audio/chat.ogg');
 var audiomp3 = new Audio('frontEnd/audio/chat.mp3');
-
+var sentogg = new Audio('frontEnd/audio/sent.ogg');
+var sentmp3 = new Audio('frontEnd/audio/sent.mp3');
 function scrollDown(){
     var wtf    = $('.wchat-chat-body');
     var height = wtf[0].scrollHeight;
@@ -42,7 +43,7 @@ function chatWith(chatuser,toid,img,status,chatuserId) {
     curNo = toid;
     boxSetter(chatuser, toid, chatuserId);
     $('.curImg').attr("src",img);
-    $('.curImg').attr("src",img);
+    $('.curName').text(chatuser);
     if ($("#pane-intro").css('visibility') == 'visible')
     {
         $("#pane-intro").css({'visibility':'hidden'});
@@ -140,6 +141,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle,toid,img,send) 
             var curTime = new Date();
             insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
             setTimeout(boxSetter(curName, curNo, curId),2000);
+            sentmp3.play();
             setTimeout(scrollDown,1000);
             sendToReciever(Ses_img, username, curId, userId, '1', message, curTime);        
         }
@@ -210,6 +212,7 @@ function clickTosendMessage(chatboxtitle,toid,img) {
         var curTime = new Date();
         insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
         setTimeout(boxSetter(curName, curNo, curId),2000);
+        sentmp3.play();        
         setTimeout(scrollDown,1000);
         sendToReciever(Ses_img, username, curId, userId, '1', message, curTime);
     }

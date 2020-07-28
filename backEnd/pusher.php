@@ -15,7 +15,7 @@
     $data['curName'] = $_POST['name'];
     $data['userId'] = $_POST['to'];
     $data['curId'] = $_POST['org'];
-    $data['1'] = $_POST['type'];
+    $data['type'] = $_POST['type'];
     $data['message'] = $_POST['message'];
     $data['curTime'] = $_POST['time'];
     

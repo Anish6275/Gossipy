@@ -19,7 +19,8 @@ function loadIndex() {
     db.transaction(function (transaction) {
         var sql = "SELECT * FROM items ORDER BY rowid DESC";
         transaction.executeSql(sql, undefined, function (transaction, result) {
-            if (result.rows.length) {                
+            if (result.rows.length) {           
+                $(".clist").html("");     
                 let listed = new Array();
                 for (var i = 0; i < result.rows.length; i++) {                    
                     var row = result.rows.item(i);
@@ -44,7 +45,7 @@ function loadIndex() {
                                     </span>
                                 </a>
                             </li>`;
-                        $(".clist").html(htm);
+                        $(".clist").append(htm);
                     } 
                     if (userId == dborigin && !(listed.includes(dbdestination))) {
                         listed.push(dbdestination);
@@ -63,7 +64,7 @@ function loadIndex() {
                                     </span>
                                 </a>
                             </li>`;
-                        $(".clist").html(htm);
+                        $(".clist").append(htm);
                     }
                 }
             } else {
@@ -83,7 +84,7 @@ function loadIndex() {
                 transaction.executeSql(sql, undefined, function () {
                     $.ajax({
                         async: false,
-                        url: "../Gossipyy/backEnd/loadChat.php",
+                        url: "../backEnd/loadChat.php",
                         type: "POST",
                         data: { uid: userId },
                         success: function (data) {

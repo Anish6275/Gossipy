@@ -5,23 +5,15 @@ $(document).ready(function() {
     });
 
 });
-
-
 function trigq(event) {
-
     var image_href = $(event).attr("url");
-
     if ($('#lightbox').length > 0) { // #lightbox exists
-
         //place href as img src value
         $('#content').html('<img src="' + image_href + '" />');
-
         //show lightbox window - you could use .show('fast') for a transition
         $('#lightbox').show();
     }
-
     else { //#lightbox does not exist - create and insert (runs 1st time only)
-
         //create HTML markup for lightbox window
         var lightbox =
             '<div id="lightbox">' +
@@ -30,12 +22,10 @@ function trigq(event) {
             '<img src="' + image_href +'" />' +
             '</div>' +
             '</div>';
-
         //insert lightbox HTML into page
         $('body').append(lightbox);
     }
 }
-
 /*if ($('#lightbox').length > 0) { // #lightbox exists
 
     //insert img tag with clicked link's href as src value

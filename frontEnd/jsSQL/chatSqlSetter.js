@@ -1,5 +1,4 @@
 function sendToSql(msg){
-    
     $.ajax({
         url:'backEnd/sender.php',
         type: 'POST',
