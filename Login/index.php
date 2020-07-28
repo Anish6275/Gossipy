@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="../frontEnd/assets/images/icon.ico">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+	<style>img[alt="www.000webhost.com"]{display: none;}</style>
 </head>
 <body>
 	
@@ -76,15 +77,23 @@
 					<a href="#" class="btn-google m-b-10">
 						<img src="images/icons/icon-google.png" alt="GOOGLE">
 						Google
-					</a>
-
-					<div class="text-center w-full p-t-115">
+					</a>					
+					<div class="text-center w-full p-t-3">
 						<span class="txt1">
 							Not a member?
 						</span>
 
-						<a class="txt1 bo1 hov1" href="#">
+						<a class="txt1 bo1 hov1" href="../Register">
 							Sign up now							
+						</a>
+					</div>
+					<div class="text-center w-full p-t-3">
+						<span class="txt1">
+							Forgot Password?
+						</span>
+
+						<a class="txt1 bo1 hov1" href="../Register">
+							Change Password							
 						</a>
 					</div>
 				</form>
