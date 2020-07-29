@@ -1,7 +1,6 @@
 var db = openDatabase("itemDB", "1.0", "itemDB", 65535);
 var lastChat;
 function setter() {
-
     deletee();
 }
 function deletee() {
@@ -109,7 +108,6 @@ function insert(chatId, image, name, origin, destination, type, data, time) {
         })
     });
 }
-
 /*
     chatId,image,name,origin,destination,type,data,time
 */

@@ -1,5 +1,3 @@
-// var username = "Bylancer";
-// var Ses_img = "Bylancer.jpg";
 var audioogg = new Audio('frontEnd/audio/chat.ogg');
 var audiomp3 = new Audio('frontEnd/audio/chat.mp3');
 var sentogg = new Audio('frontEnd/audio/sent.ogg');
@@ -16,26 +14,6 @@ var curName;
 var curNo;
 var h = 0;
 
-// function chatWith(chatuser,toid,img,status,chatuserId) {
-//     curId = chatuserId;
-//     curImg = img;
-//     curName = chatuser;
-//     curNo = toid;
-//     fetch = true;
-//     $('.curImg').attr("src",img);
-//     $('.curName').text(chatuser);
-//     if ($("#pane-intro").css('visibility') == 'visible'){
-//         $("#pane-intro").css({'visibility':'hidden'});
-//         $(".chat-right-aside").css({'visibility':'visible'});
-//     }
-
-//     createChatBox(chatuser,toid,img,status);
-
-//     scrollDown();
-
-//     $('.right .top').attr("data-user",chatuser)
-//         .attr("data-image",img);
-// }
 function chatWith(chatuser,toid,img,status,chatuserId) {
     curId = chatuserId;
     curImg = img;
@@ -141,7 +119,9 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle,toid,img,send) 
             var curTime = new Date();
             insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
             setTimeout(boxSetter(curName, curNo, curId),2000);
-            sentmp3.play();
+            if(sSwitch){
+                sentmp3.play();
+            }
             setTimeout(scrollDown,1000);
             sendToReciever(Ses_img, username, curId, userId, '1', message, curTime);        
         }
@@ -204,7 +184,6 @@ function clickTosendMessage(chatboxtitle,toid,img) {
         '</div>' +
         '</div>' +
         '</div>');
-
         $(".target-emoji").css({'display':'none'});
         $('.wchat-filler').css({'height':0+'px'});
         scrollDown();
@@ -212,7 +191,9 @@ function clickTosendMessage(chatboxtitle,toid,img) {
         var curTime = new Date();
         insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
         setTimeout(boxSetter(curName, curNo, curId),2000);
-        sentmp3.play();        
+        if(sSwitch){
+            sentmp3.play();
+        }        
         setTimeout(scrollDown,1000);
         sendToReciever(Ses_img, username, curId, userId, '1', message, curTime);
     }

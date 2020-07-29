@@ -70,7 +70,71 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>img[alt="www.000webhost.com"]{display: none;}</style>
+    <style>
+        img[alt="www.000webhost.com"]{display: none;}
+        /* The switch - the box around the slider */
+        .soundSwitch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 25px;
+        }
+
+        /* Hide default HTML checkbox */
+        .soundSwitch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .soundSwitch .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .soundSwitch .slider:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 17px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(20px);
+            -ms-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+
+        /* Rounded sliders */
+        .soundSwitch .slider.round {
+            border-radius: 34px;
+        }
+
+        .soundSwitch .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -174,12 +238,11 @@
                             </header>
                             <div class="form-material">
                                 <input class="form-control p-lr-20 live-search-box search_bg" id="searchbox" type="text"
-                                    placeholder="Search By Username or Email">
+                                    placeholder="Search by userID or email">
                             </div>
                             <div class="contact-drawer">
                                 <ul class="chatonline drawer-body contact-list clist" id="display"
-                                    data-list-scroll-container="true" style="display: block;">
-                                    
+                                    data-list-scroll-container="true" style="display: block;">                                    
                                 </ul>
                             </div>
                         </div>
@@ -215,11 +278,11 @@
                         </div>
                         <div class="wchat-chat-controls">
                             <div class="menu menu-horizontal">
-                                <div class="menu-item active dropdown pull-right">
-                                    <button id="MobileChromeplaysound" class="hidden"></button>
-                                    <button class="icon dropdown-toggle font-19" data-toggle="dropdown" href="#"
-                                        id="mute-sound"><i class="icon icon-volume-2"></i></button>
-                                </div>
+                                <!--<div class="menu-item active dropdown pull-right">-->
+                                <!--    <button id="MobileChromeplaysound" class="hidden"></button>-->
+                                <!--    <button class="icon dropdown-toggle font-19" data-toggle="dropdown" href="#"-->
+                                <!--        id="mute-sound"><i class="icon icon-volume-2"></i></button>-->
+                                <!--</div>-->
                                 <div class="mega-dropdown  pull-right"> <button
                                         class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"
                                         aria-expanded="false"><span class="font-19"><i
@@ -5980,6 +6043,13 @@
             <div class="rpanel-title"> Theme Modify<span><i class="ti-close right-side-toggle"></i></span> </div>
             <div class="r-panel-body">
                 <ul>
+                    <li><b>Sound Options</b></li>
+                </ul>
+                <label class="soundSwitch">
+                    <input type="checkbox" id="soundToogle" checked>
+                    <span class="slider round"></span>
+                </label>
+                <ul>
                     <li><b>Layout Options</b></li>
 
                 </ul>
@@ -6023,6 +6093,47 @@
         var username = "<?php echo $row['name']; ?>";
         var Ses_img = "<?php echo $row['image']; ?>";
         setter();
+        var sSwitch = true;        
+        $('#soundToogle').click(function(){
+            if(sSwitch){
+                sSwitch = false;                    
+                window.navigator.vibrate(300);
+            }else{
+                sSwitch = true;                    
+                audiomp3.play();
+                audioogg.play();
+            }
+        }); 
+        // $('#searchbox').keyup(function(){
+        //     var val = $('#searchbox').val();
+        //     if(val != ""){
+        //         if(val.length == 1){
+        //             $.ajax({
+        //                 url: "backEnd/searchUser.php",
+        //                 type: "POST",
+        //                 data: { data: val },
+        //                 success: function (data) {
+        //                     console.log(data);
+        //                     sUser = data.split('|');
+        //                     $('.clist').html("");
+        //                     for(var i = 0 ; i < sUser.length ; i+=2){
+        //                         if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
+        //                             console.log(sUser[i+1]);
+        //                             $('.clist').append(sUser[i+1]);
+        //                         }
+        //                     }
+        //                 }
+        //             });
+        //         }else{
+        //             $('.clist').html("");
+        //             for(var i = 0 ; i < sUser.length ; i+=2){
+        //                 if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
+        //                     $('.clist').append(sUser[i+1]);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
     </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="frontEnd/assets/bootstrap/dist/js/bootstrap.min.js"></script>
