@@ -44,6 +44,9 @@
     <!-- Emoji One JS -->
     <link rel="stylesheet" href="frontEnd/smiley/assets/sprites/emojione.sprites.css" />
     <script src="frontEnd/smiley/js/emojione.min.js"></script>
+    <link href="frontEnd/assets/css/EditCustom1.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <!--<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
     <script type="text/javascript">
         // #################################################
         // # Optional
@@ -223,8 +226,8 @@
                                                     class="font-19"><i
                                                         class="icon icon-options-vertical"></i></span></button>
                                             <ul class="dropdown-menu dropdown-user animated flipInY">
-                                                <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                                                <li><a href="#"><i class="ti-wallet"></i> Edit Profile</a></li>
+                                                <li id="userEditBtn"><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                                <li id="userFindBtn"><a href="#"><i class="ti-search"></i> Find People</a></li>
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="backEnd/Logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                             </ul>
@@ -6035,8 +6038,50 @@
             </div>
         </div>
     </div>
-
-
+    <div id="userEdit" style="background-color: #fff; display: none;">
+        <section class="text-gray-700 body-font relative">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-col text-center w-full mb-12">
+                        <h1 class="sm:text-3xl font-medium title-font mb-4 text-gray-900" style="font-size: 2.5rem;">My Profile</h1>
+                        <section class="fda_section_product_tile">
+                            <div class="roww fda_section_row">
+                                <div class="section_product_tile">
+                                    <div class="justify-content-center align-self-center">
+                                        <img src="<?php echo $row['image']; ?>" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 id="name"><?php echo $row['name']; ?></h4>
+                            <h5 id="userCode"><?php echo $uid; ?></h5>
+                        </section>
+                    </div>
+                    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                        <div class="flex flex-wrap -m-2">
+                            <div class="p-2 w-full">
+                                <textarea
+                                    class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-32 focus:border-red-500 text-base px-4 py-2 resize-none block" style="font-size: 1.55rem;"
+                                    placeholder="Status"></textarea>
+                            </div>
+                            <br><br>
+                            <div class="container mx-auto flex px-5 py-4 items-center justify-center flex-col">
+                                <div class="text-center lg:w-2/3 w-full">
+                                    <div class="flex justify-center">
+                                        <button onclick="closeEdit()"
+                                            class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded" style="font-size: 1.95rem;">Cancel</button>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button
+                                            class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" style="font-size: 1.95rem;">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </div>
+    <!--userFindBtn-->
     <!-- .right-sidebar -->
     <div class="right-sidebar">
         <div class="slimscrollright">
@@ -6104,6 +6149,15 @@
                 audioogg.play();
             }
         }); 
+        
+        $('#userEditBtn').click(function(){
+            $('#wchat').hide();
+            $('#userEdit').show();
+        });
+        function closeEdit(){
+            $('#wchat').show();
+            $('#userEdit').hide();
+        }
         // $('#searchbox').keyup(function(){
         //     var val = $('#searchbox').val();
         //     if(val != ""){
