@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="frontEnd/smiley/assets/sprites/emojione.sprites.css" />
     <script src="frontEnd/smiley/js/emojione.min.js"></script>
     <link rel="stylesheet" href="frontEnd/assets/css/croppie.css" />
-    <link href="frontEnd/assets/css/EditCustom1.css" rel="stylesheet" type="text/css" />
+    <link href="frontEnd/assets/css/EditCustom8.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <!--<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
     <script type="text/javascript">
@@ -137,6 +137,18 @@
 
         .soundSwitch .slider.round:before {
             border-radius: 50%;
+        }
+         .noti {
+            position: relative;
+        }
+
+        .noti .cl {
+            position: absolute;
+            top: 40%;
+            left: 65%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            margin-top: 6px;
         }
     </style>
 </head>
@@ -6090,6 +6102,132 @@
             class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded crop_image" style="font-size: -1.35rem;">Crop
         and Upload Image</button>
     </div>
+    <div id="findUser" style="background-color: #fff; display: none;">
+        <header class="body-font">
+            <div class="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+                <b onclick="closeFindUser()" style="cursor: pointer; padding-left: 225px;"> <-- back</b>
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <span class="ml-3"><h3>Find User</h3></span>
+                </a>
+            </div>
+        </header>
+        <form id="form" class="w-full max-w-sm">
+            <div class="flex items-center border-b border-b-2 border-red-500 py-2">
+                <input
+                    class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    type="text" placeholder="Type Here" aria-label="Full name">
+            </div>
+        </form>
+        <section class="text-gray-700 body-font">
+            <div class="container px-5 py-5 mx-auto">
+                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
+                        <div
+                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
+                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
+                                class="rounded-full flex-shrink-0 object-cover object-center"
+                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
+                        </div>
+                        <div class="flex-grow pl-6">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
+                                style="margin-bottom: 0; margin-top: 1px;">Lisa
+                            </h2>
+                            <p class="leading-relaxed text-gray-600">lisa123</p>
+                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
+                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
+                                        rounded">
+                                Say hi to Gossip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
+                        <div
+                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
+                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
+                                class="rounded-full flex-shrink-0 object-cover object-center"
+                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
+                        </div>
+                        <div class="flex-grow pl-6">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
+                                style="margin-bottom: 0; margin-top: 1px;">Lisa
+                            </h2>
+                            <p class="leading-relaxed text-gray-600">lisa123</p>
+                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
+                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
+                                        rounded">
+                                Say hi to Gossip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
+                        <div
+                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
+                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
+                                class="rounded-full flex-shrink-0 object-cover object-center"
+                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
+                        </div>
+                        <div class="flex-grow pl-6">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
+                                style="margin-bottom: 0; margin-top: 1px;">Lisa
+                            </h2>
+                            <p class="leading-relaxed text-gray-600">lisa123</p>
+                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
+                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
+                                        rounded">
+                                Say hi to Gossip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
+                        <div
+                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
+                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
+                                class="rounded-full flex-shrink-0 object-cover object-center"
+                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
+                        </div>
+                        <div class="flex-grow pl-6">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
+                                style="margin-bottom: 0; margin-top: 1px;">Lisa
+                            </h2>
+                            <p class="leading-relaxed text-gray-600">lisa123</p>
+                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
+                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
+                                        rounded">
+                                Say hi to Gossip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
+                        <div
+                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
+                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
+                                class="rounded-full flex-shrink-0 object-cover object-center"
+                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
+                        </div>
+                        <div class="flex-grow pl-6">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
+                                style="margin-bottom: 0; margin-top: 1px;">Lisa
+                            </h2>
+                            <p class="leading-relaxed text-gray-600">lisa123</p>
+                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
+                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
+                                        rounded">
+                                Say hi to Gossip
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
     <!--userFindBtn-->
     <!-- .right-sidebar -->
     <div class="right-sidebar">
@@ -6146,7 +6284,7 @@
         const userId = "<?php echo $uid; ?>";
         var username = "<?php echo $row['name']; ?>";
         var Ses_img = "<?php echo $row['image']; ?>";
-        var status = "<?php echo $row['status']; ?>";
+        var status = `<?php echo $row['status']; ?>`;
         function saveStatus(){
             if($('#status').val() != status){
                 var curStatus = $('#status').val();
@@ -6183,6 +6321,15 @@
             $('#wchat').show();
             $('#userEdit').hide();
         }
+        $('#userFindBtn').click(function(){
+            $('#wchat').hide();
+            $('#findUser').show();
+        });
+        function closeFindUser(){
+            $('#wchat').show();
+            $('#findUser').hide();
+        }
+        
         // $('#searchbox').keyup(function(){
         //     var val = $('#searchbox').val();
         //     if(val != ""){
