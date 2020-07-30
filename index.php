@@ -44,6 +44,7 @@
     <!-- Emoji One JS -->
     <link rel="stylesheet" href="frontEnd/smiley/assets/sprites/emojione.sprites.css" />
     <script src="frontEnd/smiley/js/emojione.min.js"></script>
+    <link rel="stylesheet" href="frontEnd/assets/css/croppie.css" />
     <link href="frontEnd/assets/css/EditCustom1.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <!--<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
@@ -207,7 +208,7 @@
                             <header class="wchat-header wchat-chat-header top">
                                 <div class="chat-avatar">
                                     <div class="avatar icon-user-default" style="height: 40px; width: 40px;">
-                                        <div class="avatar-body userimage"><img
+                                        <div class="avatar-body userimage"><img id="userImgChanged"
                                                 src="<?php echo $row['image']; ?>"
                                                 class="avatar-image is-loaded" width="100%"></div>
                                     </div>
@@ -6039,7 +6040,7 @@
         </div>
     </div>
     <div id="userEdit" style="background-color: #fff; display: none;">
-        <section class="text-gray-700 body-font relative">
+        <section class="text-gray-700 body-font relative hideWhenCropping">
                 <div class="container px-5 py-24 mx-auto">
                     <div class="flex flex-col text-center w-full mb-12">
                         <h1 class="sm:text-3xl font-medium title-font mb-4 text-gray-900" style="font-size: 2.5rem;">My Profile</h1>
@@ -6047,7 +6048,8 @@
                             <div class="roww fda_section_row">
                                 <div class="section_product_tile">
                                     <div class="justify-content-center align-self-center">
-                                        <img src="<?php echo $row['image']; ?>" alt="">
+                                        <img src="<?php echo $row['image']; ?>" onclick="triggerInp()" id="imgTrigger" alt="">
+                                        <input type="file" style="display: none;" name="upload_image" id="upload_image" accept="image/*">
                                     </div>
                                 </div>
                             </div>
@@ -6059,27 +6061,34 @@
                         <div class="flex flex-wrap -m-2">
                             <div class="p-2 w-full">
                                 <textarea
-                                    class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-32 focus:border-red-500 text-base px-4 py-2 resize-none block" style="font-size: 1.55rem;"
-                                    placeholder="Status"></textarea>
+                                    class="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-32 focus:border-red-500 text-base px-4 py-2 resize-none block" id="status" style="font-size: 1.55rem;"
+                                    placeholder="Status"><?php echo $row['status']; ?></textarea>
                             </div>
                             <br><br>
                             <div class="container mx-auto flex px-5 py-4 items-center justify-center flex-col">
                                 <div class="text-center lg:w-2/3 w-full">
                                     <div class="flex justify-center">
                                         <button onclick="closeEdit()"
-                                            class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded" style="font-size: 1.95rem;">Cancel</button>
+                                            class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded" style="font-size: 1.95rem;">Back</button>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <button
-                                            class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" style="font-size: 1.95rem;">Save</button>
+                                            class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onclick="saveStatus()" style="font-size: 1.95rem;">Save</button>
                                     </div>
                                 </div>
                             </div>
-        
                         </div>
                     </div>
                 </div>
             </section>
+            <h3 style="display: none; margin: auto;" id="imgLoading">Loading...</h3>
+            <div id="uploadimage"></div>
+            <button
+            class="ml-4 inline-flex text-gray-700 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-gray-300 rounded crop_image_cancel" style="font-size: -1.35rem;" onclick="cancelUploading()">Cancel</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button
+            class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded crop_image" style="font-size: -1.35rem;">Crop
+        and Upload Image</button>
     </div>
     <!--userFindBtn-->
     <!-- .right-sidebar -->
@@ -6137,6 +6146,22 @@
         const userId = "<?php echo $uid; ?>";
         var username = "<?php echo $row['name']; ?>";
         var Ses_img = "<?php echo $row['image']; ?>";
+        var status = "<?php echo $row['status']; ?>";
+        function saveStatus(){
+            if($('#status').val() != status){
+                var curStatus = $('#status').val();
+                $.ajax({
+                    url: "backEnd/uploadStatus.php",
+                    type: "POST",
+                    data: {"status" : curStatus, "uid" : userId},
+                    success: function (data) {
+                        $('#status').attr('value', curStatus);
+                        $('#wchat').show();
+                        $('#userEdit').hide();
+                    }
+                });
+            }    
+        }
         setter();
         var sSwitch = true;        
         $('#soundToogle').click(function(){
@@ -6203,6 +6228,8 @@
     <script type="text/javascript" src="frontEnd/chatjs/lightbox.js"></script>    
     <script type="text/javascript" src="frontEnd/chatjs/inbox.js"></script>
     <script type="text/javascript" src="frontEnd/chatjs/custom.js"></script>
+    <script type="text/javascript" src="frontEnd/assets/js/croppie.min.js"></script>
+    <script type="text/javascript" src="frontEnd/assets/js/cropperScriptss.js"></script>
     <!--ChatJs-->
 
 </body>
