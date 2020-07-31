@@ -115,8 +115,8 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle,toid,img,send) 
             $('.wchat-filler').css({'height':0+'px'});
 
             scrollDown();
-            sendToBackend(message);
             var curTime = new Date();
+            sendToBackend(message, curId, curTime);
             insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
             setTimeout(boxSetter(curName, curNo, curId),2000);
             if(sSwitch){
@@ -187,8 +187,8 @@ function clickTosendMessage(chatboxtitle,toid,img) {
         $(".target-emoji").css({'display':'none'});
         $('.wchat-filler').css({'height':0+'px'});
         scrollDown();
-        sendToBackend(message);
         var curTime = new Date();
+        sendToBackend(message, curId, curTime);
         insert(lastChat++, curImg, curName, userId, curId, '1', message, curTime);
         setTimeout(boxSetter(curName, curNo, curId),2000);
         if(sSwitch){
@@ -215,11 +215,11 @@ function clickTosendMessage(chatboxtitle,toid,img) {
     return false;
 }
 
-function sendToBackend(msg){
+function sendToBackend(msg, dest, time){
     $.ajax({
         url:'backEnd/sender.php',
         type: 'POST',
-        data:{org: userId, dest: curId, kind: '1', msg: msg},
+        data:{org: userId, dest: dest, kind: '1', msg: msg, time: time},
         success:function(data){}
     });
 }

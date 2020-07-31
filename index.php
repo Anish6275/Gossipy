@@ -150,6 +150,36 @@
             -ms-transform: translate(-50%, -50%);
             margin-top: 6px;
         }
+        .toast_container {
+            width: 270px;
+            height:29px;
+            left: 50%;
+            bottom: 7.5%;
+            position: fixed;
+            background: #424242;
+            color: #FFFFFF;
+            text-align: center;
+            padding-top: 9px;
+            border-radius:20px;
+            opacity: .9;
+            transform: translate(-50%, -50%);
+            visibility:hidden;
+        }
+
+        @keyframes animation_toast {
+            0% {
+                opacity:0;
+            }
+            30% {
+                opacity:1;
+            }
+            60% {
+                opacity:1;
+            }
+            100% {
+                opacity:0;
+            }
+        }
     </style>
 </head>
 
@@ -252,9 +282,8 @@
                                     </div>
                                 </div>
                             </header>
-                            <div class="form-material">
-                                <input class="form-control p-lr-20 live-search-box search_bg" id="searchbox" type="text"
-                                    placeholder="Search by userID or email">
+                            <div class="form-material" style="margin-top: 10px;">
+                                <b style="margin-top: 8px; margin-left: 20px; font-family: 'Ubuntu', sans-serif;">Your Buddies</b>
                             </div>
                             <div class="contact-drawer">
                                 <ul class="chatonline drawer-body contact-list clist" id="display"
@@ -6113,118 +6142,13 @@
         </header>
         <form id="form" class="w-full max-w-sm">
             <div class="flex items-center border-b border-b-2 border-red-500 py-2">
-                <input
+                <input id="searchbox"
                     class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    type="text" placeholder="Type Here" aria-label="Full name">
+                    type="text" placeholder="Search with UserID or Name" aria-label="Full name">
             </div>
         </form>
         <section class="text-gray-700 body-font">
-            <div class="container px-5 py-5 mx-auto">
-                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
-                        <div
-                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
-                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
-                                class="rounded-full flex-shrink-0 object-cover object-center"
-                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
-                        </div>
-                        <div class="flex-grow pl-6">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
-                                style="margin-bottom: 0; margin-top: 1px;">Lisa
-                            </h2>
-                            <p class="leading-relaxed text-gray-600">lisa123</p>
-                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
-                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
-                                        rounded">
-                                Say hi to Gossip
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
-                        <div
-                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
-                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
-                                class="rounded-full flex-shrink-0 object-cover object-center"
-                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
-                        </div>
-                        <div class="flex-grow pl-6">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
-                                style="margin-bottom: 0; margin-top: 1px;">Lisa
-                            </h2>
-                            <p class="leading-relaxed text-gray-600">lisa123</p>
-                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
-                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
-                                        rounded">
-                                Say hi to Gossip
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
-                        <div
-                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
-                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
-                                class="rounded-full flex-shrink-0 object-cover object-center"
-                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
-                        </div>
-                        <div class="flex-grow pl-6">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
-                                style="margin-bottom: 0; margin-top: 1px;">Lisa
-                            </h2>
-                            <p class="leading-relaxed text-gray-600">lisa123</p>
-                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
-                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
-                                        rounded">
-                                Say hi to Gossip
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
-                        <div
-                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
-                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
-                                class="rounded-full flex-shrink-0 object-cover object-center"
-                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
-                        </div>
-                        <div class="flex-grow pl-6">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
-                                style="margin-bottom: 0; margin-top: 1px;">Lisa
-                            </h2>
-                            <p class="leading-relaxed text-gray-600">lisa123</p>
-                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
-                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
-                                        rounded">
-                                Say hi to Gossip
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="noti flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex">
-                        <div
-                            class="w-16 h-16 inline-flex items-center justify-center rounded-full text-red-500 mb-4 flex-shrink-0">
-                            <img alt="blog" src="https://gossipy.ga/user/5f22d1d9be10f.png"
-                                class="rounded-full flex-shrink-0 object-cover object-center"
-                                style="height: 4.5rem; width: 4.5rem; margin-top: 16px;">
-                        </div>
-                        <div class="flex-grow pl-6">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2"
-                                style="margin-bottom: 0; margin-top: 1px;">Lisa
-                            </h2>
-                            <p class="leading-relaxed text-gray-600">lisa123</p>
-                            <button onclick="" class="cl bg-transparent hover:bg-red-500 text-red-700
-                                        font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent
-                                        rounded">
-                                Say hi to Gossip
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="container px-5 py-5 mx-auto searchList">                
             </div>
         </section>
     </div>
@@ -6275,6 +6199,10 @@
             <img src="#" />
         </div>
     </div>
+    <!--Toast-->
+    <div id="toast_container" class="toast_container">
+		<span id="toast_message"></span>
+	</div>
     <!--This div for modal light box chat box image-->
     <!-- jQuery -->
     <script src="frontEnd/plugins/bower_components/jquery/dist/jquery.min.js"></script>
@@ -6330,36 +6258,36 @@
             $('#findUser').hide();
         }
         
-        // $('#searchbox').keyup(function(){
-        //     var val = $('#searchbox').val();
-        //     if(val != ""){
-        //         if(val.length == 1){
-        //             $.ajax({
-        //                 url: "backEnd/searchUser.php",
-        //                 type: "POST",
-        //                 data: { data: val },
-        //                 success: function (data) {
-        //                     console.log(data);
-        //                     sUser = data.split('|');
-        //                     $('.clist').html("");
-        //                     for(var i = 0 ; i < sUser.length ; i+=2){
-        //                         if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
-        //                             console.log(sUser[i+1]);
-        //                             $('.clist').append(sUser[i+1]);
-        //                         }
-        //                     }
-        //                 }
-        //             });
-        //         }else{
-        //             $('.clist').html("");
-        //             for(var i = 0 ; i < sUser.length ; i+=2){
-        //                 if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
-        //                     $('.clist').append(sUser[i+1]);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // });
+        $('#searchbox').keyup(function(){
+            var val = $('#searchbox').val();
+            if(val != ""){
+                if(val.length == 1){
+                    $.ajax({
+                        url: "backEnd/searchUser.php",
+                        type: "POST",
+                        data: { data: val, user: userId },
+                        success: function (data) {
+                            sUser = data.split('|');
+                            $('.searchList').html("");
+                            for(var i = 0 ; i < sUser.length ; i+=2){
+                                if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
+                                    $('.searchList').append(sUser[i+1]);
+                                }
+                            }
+                        }
+                    });
+                }else{
+                    $('.searchList').html("");
+                    for(var i = 0 ; i < sUser.length ; i+=2){
+                        if((sUser[i].toLowerCase()).includes('^' + val.toLowerCase())){
+                            $('.searchList').append(sUser[i+1]);
+                        }
+                    }
+                }
+            }else{
+                $('.searchList').html("");
+            }
+        });
     </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="frontEnd/assets/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -6373,10 +6301,12 @@
     <script type="text/javascript" src="frontEnd/jsSQL/chatSetter.js"></script>
     <script type="text/javascript" src="frontEnd/jsSQL/reciever.js"></script>
     <script type="text/javascript" src="frontEnd/chatjs/lightbox.js"></script>    
-    <script type="text/javascript" src="frontEnd/chatjs/inbox.js"></script>
+    <script type="text/javascript" src="frontEnd/chatjs/inboxxx.js"></script>
     <script type="text/javascript" src="frontEnd/chatjs/custom.js"></script>
     <script type="text/javascript" src="frontEnd/assets/js/croppie.min.js"></script>
     <script type="text/javascript" src="frontEnd/assets/js/cropperScriptss.js"></script>
+    <script src="frontEnd/assets/js/toast.js"></script>
+    <script src="frontEnd/assets/js/searchUserHandler3.js"></script>
     <!--ChatJs-->
 
 </body>
