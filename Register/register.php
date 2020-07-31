@@ -20,8 +20,8 @@
 		$sql = "SELECT `uid` FROM `user` WHERE `uid` LIKE '{$_POST['uid']}' ;";  
 		$result = mysqli_query($conn, $sql);
     	if ($result->num_rows <= 0){		
-			$str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-=_+~abcdefghijklmnopqrstuvwxyz124567890'; 
-    		$verificationCode = substr(str_shuffle($str_result), 0, 55);    		
+			$str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-=_~abcdefghijklmnopqrstuvwxyz124567890'; 
+    		$verificationCode = substr(str_shuffle($str_result), 0, 50);    		
 			$sql = "INSERT INTO `user` (`slno`, `uid`, `pass`, `name`, `image`, `dob`, `gender`, `pno`, `email`, `code`, `verified`, `status`)";
 			$sql = $sql . "VALUES (NULL, '{$_POST['uid']}', '{$_POST['pass']}', '{$_POST['name']}', 'frontEnd/assets/images/user.png','{$_POST['birthday']}', '{$_POST['gender']}'";
 			$sql = $sql . ", '{$_POST['phone']}', '{$_POST['email']}', '{$verificationCode}', '0', '');";  			
