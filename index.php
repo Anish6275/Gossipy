@@ -6301,8 +6301,8 @@
     <script type="text/javascript" src="frontEnd/jsSQL/chatSetter.js"></script>
     <script type="text/javascript" src="frontEnd/jsSQL/reciever.js"></script>
     <script type="text/javascript" src="frontEnd/chatjs/lightbox.js"></script>    
-    <script type="text/javascript" src="frontEnd/chatjs/inboxxx.js"></script>
-    <script type="text/javascript" src="frontEnd/chatjs/custom.js"></script>
+    <script type="text/javascript" src="frontEnd/chatjs/inbox1.js"></script>
+    <script type="text/javascript" src="frontEnd/chatjs/custom1.js"></script>
     <script type="text/javascript" src="frontEnd/assets/js/croppie.min.js"></script>
     <script type="text/javascript" src="frontEnd/assets/js/cropperScriptss.js"></script>
     <script src="frontEnd/assets/js/toast.js"></script>

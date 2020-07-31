@@ -33,7 +33,8 @@ function chatWith(chatuser,toid,img,status,chatuserId) {
     scrollDown();
 
     $('.right .top').attr("data-user",chatuser)
-        .attr("data-image",img);
+        .attr("data-image",img)
+        .attr("data-id",chatuserId);
 }
 
 function createChatBox(chatboxtitle,toid,img,status,minimizeChatBox) {
