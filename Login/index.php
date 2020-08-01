@@ -22,14 +22,14 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-	<style>img[alt="www.000webhost.com"]{display: none;}</style>
+    <style>img[alt="www.000webhost.com"]{display: none;}</style>
 </head>
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form action="authenticate.php" method="POST" class="login100-form validate-form">
+				<form action="PHP/authenticate.php" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title p-b-55">
 						Login
 					</span>
@@ -92,7 +92,7 @@
 							Forgot Password?
 						</span>
 
-						<a class="txt1 bo1 hov1" href="../Register">
+						<a class="txt1 bo1 hov1" href="change.html">
 							Change Password							
 						</a>
 					</div>

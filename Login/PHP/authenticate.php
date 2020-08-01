@@ -1,9 +1,9 @@
 <?php  
     session_start();
     if(isset($_SESSION["admin_name"])){
-        header("location: ../index.php");
+        header("location: ../../index.php");
     }
-    include '../dbManager.php';
+    include '../../dbManager.php';
     if(!empty($_POST["uid"]) && !empty($_POST["pass"])){        
         $name = $_POST["uid"];
         $password = $_POST["pass"];
@@ -25,28 +25,35 @@
                         setcookie ("member_password","");  
                     }  
                 }  
-                header("location: ../index.php"); 
+                header("location: ../../index.php"); 
             }else{  
                 $message = "Invalid Login";
                 echo '<script language="javascript">';
                 echo 'alert("'.$message.'");';
-                echo 'window.location="../index.php";';
+                echo 'window.location="../../index.php";';
                 echo '</script>';  
             }        
         }else{
             $message = "Invalid Login";
             echo '<script language="javascript">';
             echo 'alert("'.$message.'");';
-            echo 'window.location="../index.php";';
+            echo 'window.location="../../index.php";';
             echo '</script>'; 
         }         
     }else{
         $message = "Both are Required Fields";
         echo '<script language="javascript">';
         echo 'alert("'.$message.'");';
-        echo 'window.location="../index.php";';
+        echo 'window.location="../../index.php";';
         echo '</script>';
     }
+
+    /*LOGOUT
+    <?php
+    session_start();
+    unset($_SESSION["user"]);
+    header("location:index.php");
+    ?>*/
  ?>
 
 
